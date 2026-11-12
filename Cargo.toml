@@ -1,0 +1,23 @@
+[package]
+name = "pdf-shrink"
+version = "0.1.0"
+edition = "2024"
+description = "Shrink PDF files: structural optimisation plus image downsampling. Library and CLI."
+license = "MIT"
+
+[dependencies]
+clap = { version = "4.6.7", features = ["derive"] }
+fax = "0.3.0"
+flate2 = "1.1.11"
+image = { version = "0.25.10", default-features = false }
+jpeg-encoder = "0.7.1"
+lopdf = "0.47"
+rayon = "1.12.0"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+zune-jpeg = "0.5.15"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
